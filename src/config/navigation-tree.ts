@@ -14,11 +14,11 @@ export const NavTree: NavigationTree = {
       path: 'root--loader-screen'
     },
     SwitcherFetus: {
-      title: 'Type',
+      title: 'Greeting',
       path: 'root--switcher-screen'
     },
     AuthorizationFetus: {
-      title: 'Авторизация',
+      title: 'Authorization',
       path: 'root--authorization-screen'
     },
     D__RegistrationFetus: {
@@ -42,25 +42,25 @@ export const NavTree: NavigationTree = {
   },
   D__DrawerBranch: {
     GeneralStackRudiment: {
-      title: 'Main+',
+      title: '---',
       path: 'd--drawer--general-stack'
     }
   },
   D__GeneralBranch: {
     GeneralFetus: {
-      title: 'Main',
+      title: 'Doctor Dashboard',
       path: 'd--general-stack--general-screen'
     }
   },
   P__DrawerBranch: {
     GeneralStackRudiment: {
-      title: 'Main+',
+      title: '---',
       path: 'p--drawer--general-stack'
     }
   },
   P__GeneralBranch: {
     GeneralFetus: {
-      title: 'Main',
+      title: 'Patient Dashboard',
       path: 'p--general-stack--general-screen'
     }
   }

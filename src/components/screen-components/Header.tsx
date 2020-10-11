@@ -62,10 +62,7 @@ const Header: React.FC<HeaderPageProps> = ({
 
 const { headerStyle } = StyleSheet.create({
   headerStyle: {
-    backgroundColor: COLORS.secondary,
-    borderBottomLeftRadius: 10,
-    borderBottomRightRadius: 10,
-    marginBottom: -5
+    backgroundColor: COLORS.secondary
   }
 })
 

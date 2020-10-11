@@ -45,17 +45,10 @@ const SafeView = styled.SafeAreaView<{
   ${({headerExist}) => headerExist ? `
     border: 0px solid ${COLORS.secondary};
     border-top-width: 2px;
-    
-    margin-top: 10px;
-    
   ` : `
     
   `}
 `
-  // border-left-width: 0.5px;
-  // border-right-width: 0.5px;
-  // border-top-right-radius: 10px;
-  // border-top-left-radius: 10px;
 
 const SafeScrollView = styled.ScrollView`
   width: 100%;

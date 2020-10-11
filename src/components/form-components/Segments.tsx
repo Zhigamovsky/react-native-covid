@@ -11,15 +11,15 @@ export const Segments: React.FC<SegmentsProps> = ({
   values,
   activeIndex,
   onChangeIndex,
-  backgroundColor = 'transparent',//COLORS.background,
+  backgroundColor = 'transparent',
   label = null
 }) => (
   <>
     { label && <Label>{label}</Label> }
     <SegmentedControl
-      style={[segmentStyle, { backgroundColor }]}
-      fontStyle={fontStyle}
-      activeFontStyle={activeFontStyle}
+      style={[styles.segment, { backgroundColor }]}
+      fontStyle={styles.font}
+      activeFontStyle={styles.activeFont}
       backgroundColor={backgroundColor}
       tintColor={COLORS.segments}
       values={values}
@@ -29,14 +29,10 @@ export const Segments: React.FC<SegmentsProps> = ({
   </>
 )
 
-const {
-  activeFontStyle,
-  fontStyle,
-  segmentStyle
-} = StyleSheet.create({
-  activeFontStyle: SheetFONT('Bold', 16, COLORS.background),
-  fontStyle: SheetFONT('Bold', 16, COLORS.segments),
-  segmentStyle: {
+const styles = StyleSheet.create({
+  activeFont: SheetFONT('Bold', 16, 'white'),
+  font: SheetFONT('Bold', 16, COLORS.segments),
+  segment: {
     height: 40,
     width: '100%',
     backgroundColor: COLORS.background,

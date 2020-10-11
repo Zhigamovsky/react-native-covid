@@ -11,7 +11,7 @@ const Screen: React.FC<PatientGeneralScreenProps> = ({
   return (
     <Container
       headerProps={{
-        title: `P ${Tree.P__GeneralBranch.GeneralFetus.title}`,
+        title: Tree.P__GeneralBranch.GeneralFetus.title,
         enableMenuButton: true,
         navigation
       }}
