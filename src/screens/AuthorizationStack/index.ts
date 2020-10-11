@@ -1,0 +1,5 @@
+export { default as Loader  } from './Loader'
+export { default as Switcher } from './Switcher'
+export { default as Authorization } from './Authorization'
+export { default as DoctorRegistration } from './DoctorRegistration'
+export { default as PatientRegitration } from './PatientRegistration'

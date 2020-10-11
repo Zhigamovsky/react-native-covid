@@ -1,9 +1,19 @@
+import 'react-native-gesture-handler'
+import React from 'react'
+import { AppRegistry } from 'react-native'
+
+import { name as appName } from './app.json'
+import { RootNavigation } from './src/navigation'
+
 /**
- * @format
+ * Hide all console.log in release build
+ * @call Log.setEnvironmentRelease(); 
  */
 
-import {AppRegistry} from 'react-native';
-import App from './App';
-import {name as appName} from './app.json';
-
-AppRegistry.registerComponent(appName, () => App);
+AppRegistry.registerComponent(appName, () => {
+  return (
+    () => (
+      <RootNavigation />
+    )
+  )
+})
