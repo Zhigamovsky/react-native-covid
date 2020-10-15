@@ -1,9 +1,10 @@
 import React from 'react'
-
 import { Button as NativeButton } from 'react-native-elements'
-import { SheetFONT } from '../../utils'
-import { ButtonProps } from './types'
 import { StyleSheet } from 'react-native'
+
+import { ButtonProps } from './types'
+
+import { SheetFONT } from '../../utils'
 import { ButtonDefaultValue, ButtonTypes } from './_static'
 
 export const Button: React.FC<ButtonProps> = ({

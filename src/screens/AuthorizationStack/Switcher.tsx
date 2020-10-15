@@ -1,14 +1,15 @@
 import React, { useState } from 'react'
+import { StyleSheet } from 'react-native'
+import styled from 'styled-components/native'
 
-import { AvoidingKeyboard, Container} from '../../components/screen-components'
+import { Container} from '../../components/screen-components'
 import { Tree } from '../../config'
-import { SwitcherScreenProps } from '../../types/navigation'
+import { AuthorizationScreenProps, SwitcherScreenProps } from '../../types/navigation'
 import { Button, Divider, Segments } from '../../components/form-components'
 import { AccountTypes } from './static/data'
 import { EAccountTypes } from '../../config/enums/enum.account.types'
 import { images } from '../../utils/images'
-import styled from 'styled-components/native'
-import { FLEX } from '../../utils'
+import { FLEX, FONT } from '../../utils'
 
 const Screen: React.FC<SwitcherScreenProps> = ({
   navigation
@@ -16,7 +17,9 @@ const Screen: React.FC<SwitcherScreenProps> = ({
   const [activeAccountType, changeAccountType] = useState<typeof AccountTypes.values[number]>(AccountTypes.values[0])
   const NavEvents = {
     toAthorization: () => {
-      navigation.navigate(Tree.AuthorizationBranch.AuthorizationFetus.path)
+      navigation.navigate(Tree.AuthorizationBranch.AuthorizationFetus.path, {
+        accountType: activeAccountType
+      } as AuthorizationScreenProps['route']['params'])
     },
     toRegistration: () => {
       switch (activeAccountType.value) {
@@ -37,36 +40,37 @@ const Screen: React.FC<SwitcherScreenProps> = ({
         title: Tree.AuthorizationBranch.SwitcherFetus.title,
         navigation
       }}
-    >
-      <AvoidingKeyboard 
-        scrollviewProps={{
+      scrollable='avoiding'
+      avoidingProps={{
+        scrollviewProps: {
           style: { width: '90%' }
-        }}
-      >
-        <LogoWrapper>
-          <Logo source={images.logo} />
-        </LogoWrapper>
-        <Divider />
-        <Segments 
-          label='Who are you?'
-          values={AccountTypes.types}
-          activeIndex={activeAccountType.index}
-          onChangeIndex={index => changeAccountType(AccountTypes.values[index])}
-        />
-        <Divider />
-        <Button 
-          mode='solid-dark'
-          title={`Authorize as a ${activeAccountType.value}`}
-          onPress={NavEvents.toAthorization}
-        />
-        <Divider />
-        <Button 
-          mode='outline-dark'
-          title={`Register as a ${activeAccountType.value}`}
-          onPress={NavEvents.toRegistration}
-        />
-        <Divider />
-      </AvoidingKeyboard>
+        }
+      }}
+    >
+      <LogoWrapper>
+        <Logo source={images.logo} />
+      </LogoWrapper>
+      <Title>COVID-19</Title>
+      <Divider />
+      <Segments 
+        label='Who are you?'
+        values={AccountTypes.types}
+        activeIndex={activeAccountType.index}
+        onChangeIndex={index => changeAccountType(AccountTypes.values[index])}
+      />
+      <Divider />
+      <Button 
+        mode='solid-dark'
+        title={`Authorize as a ${activeAccountType.value}`}
+        onPress={NavEvents.toAthorization}
+      />
+      <Divider />
+      <Button 
+        mode='outline-dark'
+        title={`Register as a ${activeAccountType.value}`}
+        onPress={NavEvents.toRegistration}
+      />
+      <Divider />
     </Container>
   )
 }
@@ -83,4 +87,10 @@ const LogoWrapper = styled.View`
   width: 100%;
   padding: 20px;
   ${FLEX()}
+`
+
+const Title = styled.Text`
+  ${FONT('Bold', 30)}
+  width: 100%;
+  text-align: center;
 `

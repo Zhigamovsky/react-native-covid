@@ -4,6 +4,7 @@ import { StyleSheet } from 'react-native'
 import SegmentedControl from '@react-native-community/segmented-control'
 
 import { SegmentsProps } from './types'
+
 import { COLORS, SheetFONT } from '../../utils'
 import { Label } from '../styled-components'
 

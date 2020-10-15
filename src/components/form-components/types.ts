@@ -1,5 +1,15 @@
-import { ButtonProps as NativeButtonProps } from "react-native";
-import { ButtonTypeVariants } from "./_static";
+import { 
+  ButtonProps as NativeButtonProps, 
+  TextInputProps as NativeTextInputProps, 
+  TextStyle, 
+  ViewStyle
+} from "react-native"
+import { ButtonTypeVariants } from "./_static"
+
+interface WithValueHandler<T> {
+  value: T,
+  onValueChange: (v: T) => void
+}
 
 export interface SegmentsProps {
   values: any[]
@@ -21,3 +31,43 @@ export interface ButtonProps {
   onPress: () => void
   nativeProps?: NativeButtonProps
 }
+
+export interface TextInputProps 
+  extends WithValueHandler<string> {
+  placeholder?: string
+  label?: string
+  nativeProps?: Omit<NativeTextInputProps, 'value' | 'onChangeText' | 'placeholder'>
+}
+
+export interface ListPickerValue {
+  slug: string
+  title: string,
+  onPress?: () => void,
+  containerStyle?: ViewStyle
+  titleStyle?: TextStyle
+}
+
+export interface ListPickerProps {
+  label?: string
+  placeholder?: string
+  value: ListPickerValue | null
+  onPickValue: (value: ListPickerValue) => void
+  listValue: ListPickerValue[]
+}
+
+export interface CheckboxProps 
+  extends WithValueHandler<boolean> {
+  label?: string,
+  
+}
+
+export interface DateTimePickerProps {
+  enableDisplayDescription?: boolean,
+  label?: string,
+  placeholder?: string,
+  value: Date | undefined | null,
+  onChange: (date: Date) => void,
+  mode?: 'time' | 'date' | 'datetime',
+  type?: 'age' | 'license' | 'arrival',
+  editable?: boolean
+} 

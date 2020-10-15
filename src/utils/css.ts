@@ -136,7 +136,8 @@ export const COLORS = {
   fifthparty: '#723d46',
   statusbar: '#999999',
   background: '#d1eeff',
-  segments: '#42aaff'
+  segments: '#42aaff',
+  elements: '#0071cc'
 }
 
 //   main: '#0071cc',

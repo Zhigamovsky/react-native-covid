@@ -1,6 +1,9 @@
-import { DrawerNavigationProp } from "@react-navigation/drawer";
-import { NavigationProp } from "@react-navigation/native";
-import { StackNavigationProp } from "@react-navigation/stack";
+import { DrawerNavigationProp } from "@react-navigation/drawer"
+import { NavigationProp } from "@react-navigation/native"
+import { StackNavigationProp } from "@react-navigation/stack"
+
+import { EAccountTypes } from "../../config/enums/enum.account.types"
+import { AccountTypes } from "../../screens/AuthorizationStack/static/data"
 
 export enum ENavTypes {
   STACK_ELEMENT = 'NAVIGATION_STACK_ELEMENT',
@@ -34,8 +37,10 @@ export interface SwitcherScreenProps
 }
 
 export interface AuthorizationScreenProps
-  extends NavElement {
-
+  extends NavElement<ENavTypes.STACK_ELEMENT, {
+    accountType: typeof AccountTypes.values[number]
+  }> {
+  
 }
 
 export interface DoctorRegistrationScreenProps
@@ -55,7 +60,7 @@ export interface PatientRegistrationScreenProps
 
 export interface DoctorGeneralScreenProps 
   extends NavElement<ENavTypes.DRAWER_ELEMENT> {
-
+  
 }
 
 export interface PatientGeneralScreenProps 

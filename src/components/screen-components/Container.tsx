@@ -4,15 +4,17 @@ import styled from 'styled-components/native'
 import { ContainerPageProps } from './types'
 import { FLEX, COLORS } from '../../utils'
 import Header from './Header'
+import AvoidingKeyboard from './AvoidingKeyboard'
 
 const Container: React.FC<ContainerPageProps> = ({
-  scrollable = false,
+  scrollable = 'none',
   background = COLORS.background,
   children,
   containerStyle = {},
   scrollviewStyle = {},
   containerScrollviewStyle = {},
-  headerProps = null
+  headerProps = null,
+  avoidingProps = {}
 }) => (
   <>
     { headerProps && <Header {...headerProps} /> }
@@ -22,13 +24,17 @@ const Container: React.FC<ContainerPageProps> = ({
       headerExist={!!headerProps}
     >
     {
-      scrollable ? (
+      scrollable === 'scrollview' ? (
         <SafeScrollView
           style={scrollviewStyle}
           contentContainerStyle={containerScrollviewStyle}
         >
           {children}
         </SafeScrollView>
+      ) : scrollable === 'avoiding' ? (
+        <AvoidingKeyboard {...avoidingProps}>
+          {children}
+        </AvoidingKeyboard>
       ) : children
     }
     </SafeView>

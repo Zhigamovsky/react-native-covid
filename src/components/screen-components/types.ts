@@ -13,12 +13,13 @@ export interface HeaderPageProps {
 }
 
 interface ContainerPageDefaultProps {
-  scrollable?: boolean,
+  scrollable?: 'none' | 'scrollview' | 'avoiding',
   background?: string,
   containerStyle?: ViewStyle,
   scrollviewStyle?: ViewStyle,
   containerScrollviewStyle?: ViewStyle,
-  headerProps?: HeaderPageProps
+  headerProps?: HeaderPageProps,
+  avoidingProps?: AvoidingKeyboardProps,
 }
 
 export interface ContainerPageProps 
