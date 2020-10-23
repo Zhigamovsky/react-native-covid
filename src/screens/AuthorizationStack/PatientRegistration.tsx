@@ -46,7 +46,6 @@ const Screen: React.FC<PatientRegistrationScreenProps> = ({
         props={registerProps}
         onValidPress={RequestEvents.forceRegister}
       />
-      {/* <Button title='Register as Patient' onPress={NavEvents.toPatientDrawer} /> */}
     </Container>
   )
 }

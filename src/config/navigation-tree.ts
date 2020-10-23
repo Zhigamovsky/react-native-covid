@@ -48,7 +48,7 @@ export const NavTree: NavigationTree = {
   },
   D__GeneralBranch: {
     GeneralFetus: {
-      title: 'Doctor Dashboard',
+      title: 'Dashboard',
       path: 'd--general-stack--general-screen'
     }
   },
@@ -60,7 +60,7 @@ export const NavTree: NavigationTree = {
   },
   P__GeneralBranch: {
     GeneralFetus: {
-      title: 'Patient Dashboard',
+      title: 'Dashboard',
       path: 'p--general-stack--general-screen'
     }
   }

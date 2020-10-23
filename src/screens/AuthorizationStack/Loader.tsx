@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Button } from 'react-native'
 import styled from 'styled-components/native'
 
@@ -15,6 +15,10 @@ const Screen: React.FC<LoaderScreenProps> = ({
       navigation.navigate(Tree.AuthorizationBranch.SwitcherFetus.path)
     }
   }
+
+  useEffect(() => {
+    NavEvents.toSwitcher()
+  }, [])
 
   return (
     <Container
