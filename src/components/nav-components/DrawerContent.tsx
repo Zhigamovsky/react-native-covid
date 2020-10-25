@@ -32,25 +32,37 @@ export const DrawerContent: React.FC<DrawerContentProps> = (props) => {
     },
   }
 
+  const PatientRouteEvents = {
+    toDashboard: () => props.navigation.navigate(NavTree.P__DrawerBranch.GeneralStackRudiment.path),
+    toQuestionnaire: () => props.navigation.navigate(NavTree.P__DrawerBranch.QuestionnaireStackRudiment.path),
+    toCovidInformation: () => props.navigation.navigate(NavTree.P__DrawerBranch.AboutCOVIDFetus.path),
+    logout: () => Events.exit()
+  }
+
+  const DoctorRouteEvents = {
+    toDashboard: () => props.navigation.navigate(NavTree.D__DrawerBranch.GeneralStackRudiment.path),
+    logout: () => Events.exit()
+  }
+
   const DrawerItems: CollectionItemsParams = {
     [EAccountTypes.Doctor]: [
       {
         title: 'Dashboard',
         routePath: '',
         Icon: <MaterialIcons name='backup-table' color={COLORS.segments} size={30} />,
-        onPress: Events.exit
+        onPress: DoctorRouteEvents.toDashboard
       },
       {
         title: 'Settings',
         routePath: '',
         Icon: <MaterialIcons name='settings' color={COLORS.segments} size={30} />,
-        onPress: Events.exit
+        onPress: DoctorRouteEvents.logout
       },
       {
         title: 'Logout',
         routePath: '',
         Icon: <Ionicons name='exit' color={COLORS.segments} size={30} />,
-        onPress: Events.exit
+        onPress: DoctorRouteEvents.logout
       }
     ],
     [EAccountTypes.Patient]: [
@@ -58,25 +70,31 @@ export const DrawerContent: React.FC<DrawerContentProps> = (props) => {
         title: 'Dashboard',
         routePath: '',
         Icon: <MaterialIcons name='table-chart' color={COLORS.segments} size={30} />,
-        onPress: Events.exit
+        onPress: PatientRouteEvents.toDashboard
       },
       {
         title: 'Questionnaire',
         routePath: '',
         Icon: <MaterialIcons name='list-alt' color={COLORS.segments} size={30} />,
-        onPress: Events.exit
+        onPress: PatientRouteEvents.toQuestionnaire
+      },
+      {
+        title: 'About COVID-19',
+        routePath: '',
+        Icon: <MaterialIcons name='coronavirus' color={COLORS.segments} size={30} />,
+        onPress: PatientRouteEvents.toCovidInformation
       },
       {
         title: 'Settings',
         routePath: '',
         Icon: <MaterialIcons name='settings' color={COLORS.segments} size={30} />,
-        onPress: Events.exit
+        onPress: PatientRouteEvents.logout
       },
       {
         title: 'Logout',
         routePath: '',
         Icon: <Ionicons style={{marginLeft: 5}} name='exit' color={COLORS.segments} size={30} />,
-        onPress: Events.exit
+        onPress: PatientRouteEvents.logout
       } 
     ]
   }
@@ -96,7 +114,7 @@ export const DrawerContent: React.FC<DrawerContentProps> = (props) => {
         <DrawerContentItem 
           key={index}
           title={item.title}
-          onPress={() => item.onPress()}
+          onPress={item.onPress}
           Icon={item.Icon}
         /> 
       ))}

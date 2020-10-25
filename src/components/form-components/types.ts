@@ -71,3 +71,17 @@ export interface DateTimePickerProps {
   type?: 'age' | 'license' | 'arrival',
   editable?: boolean
 } 
+
+export interface AccordionProps {
+
+}
+
+export interface AccordionRenderProps {
+  content: {
+    title: string,
+    content: string
+  },
+  index: number,
+  isActive: boolean,
+  sections: AccordionRenderProps['content'][]
+} 

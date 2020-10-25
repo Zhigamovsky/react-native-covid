@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components/native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { BottomSheet, ListItem } from 'react-native-elements'
-import { StyleSheet } from 'react-native'
+import { Platform, StyleSheet } from 'react-native'
 
 import { ListPickerProps, ListPickerValue } from './types'
 
@@ -127,6 +127,7 @@ const Placeholder = styled.Text`
 
 const SelectedItem = styled.Text`
   ${FONT('Bold', 14, COLORS.elements)}
+  ${Platform.OS === 'android' ? `margin-top: -5px;` : ''}
 `
 
 const SelectedContainer = styled.View`

@@ -39,7 +39,8 @@ const Container = styled.View`
   background: white;
   box-shadow: 1px 0px 5px #0000003D;
   elevation: 5;
-  border-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
   ${FLEX('column', 'center', 'space-between')}
 `
 

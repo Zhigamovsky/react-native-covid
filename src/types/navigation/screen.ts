@@ -2,7 +2,6 @@ import { DrawerNavigationProp } from "@react-navigation/drawer"
 import { NavigationProp } from "@react-navigation/native"
 import { StackNavigationProp } from "@react-navigation/stack"
 
-import { EAccountTypes } from "../../config/enums/enum.account.types"
 import { AccountTypes } from "../../screens/AuthorizationStack/static/data"
 
 export enum ENavTypes {
@@ -66,4 +65,14 @@ export interface DoctorGeneralScreenProps
 export interface PatientGeneralScreenProps 
   extends NavElement<ENavTypes.DRAWER_ELEMENT> {
 
+}
+
+export interface PatientQuestionnaireScreenProps
+  extends NavElement<ENavTypes.DRAWER_ELEMENT> {
+
+}
+
+export interface PatientAboutCovidScreenProps
+  extends NavElement<ENavTypes.DRAWER_ELEMENT> {
+  
 }

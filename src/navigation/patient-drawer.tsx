@@ -4,6 +4,8 @@ import { createDrawerNavigator } from "@react-navigation/drawer"
 import { NavElement } from "../types/navigation"
 import { NavTree } from "../config/navigation-tree"
 import { PatientGeneralStackNavigator } from './patient-general-stack'
+import { PatientQuestionnaireStackNavigator } from './patient-questionnaire-stack'
+import AboutCovidScreen from '../screens/PatientAboutCovid/AboutCovid'
 import { DrawerContent } from '../components/nav-components/DrawerContent'
 import { EAccountTypes } from '../config/enums/enum.account.types'
 
@@ -28,6 +30,14 @@ export const DrawerStackNavigator: React.FC<NavElement> = ({
       <DrawerNavigator.Screen
         name={NavTree.P__DrawerBranch.GeneralStackRudiment.path}
         component={PatientGeneralStackNavigator} 
+      />
+      <DrawerNavigator.Screen
+        name={NavTree.P__DrawerBranch.QuestionnaireStackRudiment.path}
+        component={PatientQuestionnaireStackNavigator} 
+      />
+      <DrawerNavigator.Screen
+        name={NavTree.P__DrawerBranch.AboutCOVIDFetus.path}
+        component={AboutCovidScreen} 
       />
     </DrawerNavigator.Navigator>
   )

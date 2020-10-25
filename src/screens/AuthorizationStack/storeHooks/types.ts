@@ -6,8 +6,6 @@ export interface UseStore<STATE = any, ACTIONS = any, PROPS = any>{
   (props: PROPS): [STATE, ACTIONS, PROPS]
 }
 
-// export 
-
 /** --- UseAuthStore --- */
 
 export interface UseAuthStore 

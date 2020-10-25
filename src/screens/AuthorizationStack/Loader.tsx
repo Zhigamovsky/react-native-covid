@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react'
-import { Button } from 'react-native'
+import { ActivityIndicator, Button } from 'react-native'
 import styled from 'styled-components/native'
 
 import { Container} from '../../components/screen-components'
 import { Tree } from '../../config'
 import { LoaderScreenProps } from '../../types/navigation'
+import { COLORS } from '../../utils'
 
 const Screen: React.FC<LoaderScreenProps> = ({
   navigation
@@ -17,19 +18,24 @@ const Screen: React.FC<LoaderScreenProps> = ({
   }
 
   useEffect(() => {
-    NavEvents.toSwitcher()
+    let focusListener = navigation.addListener('focus', () => {
+      NavEvents.toSwitcher()
+    })
+    return focusListener
   }, [])
 
   return (
-    <Container
-      // headerProps={{
-      //   title: Tree.AuthorizationBranch.LoaderFetus.title,
-      //   navigation
-      // }}
-    >
-      <Button 
+    <Container>
+      {/* <Button 
         title='To Switcher'
         onPress={NavEvents.toSwitcher}
+      /> */}
+      <ActivityIndicator 
+        size='large'
+        style={{
+          marginTop: 50
+        }}
+        color={COLORS.main}
       />
     </Container>
   )

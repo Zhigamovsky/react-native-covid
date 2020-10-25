@@ -60,6 +60,7 @@ const Screen: React.FC<DoctorGeneralScreenProps> = ({
     },
     getAdditionalPatients: () => {
       if(!isEndReachedMomentum) {
+        console.log(pagger.page + 1)
         Queries.forceGetPatients(ELoaders.ISL, pagger.page + 1)
         toggleEndReachedMomentum(true);
       }
@@ -67,7 +68,7 @@ const Screen: React.FC<DoctorGeneralScreenProps> = ({
     async getPatientsQuery (page: number, limit = LIMIT) {
       return new Promise<Array<PatientEntity>>((resolve, reject) => {
         const resolver = () => resolve($DSPatientsList.slice(page * limit, page * limit + limit))
-        setTimeout(resolver, 1000)
+        setTimeout(resolver, 500)
       })
     },
     async forceGetPatients(indicator: ELoaders, nextPage?: number) {
@@ -178,12 +179,10 @@ const styles = StyleSheet.create({
     paddingBottom: 25,
   },
   container: {
-    paddingTop: 10,
     paddingHorizontal: '5%',
   },
   flatlist: {
-    // backgroundColor: 'lightgrey',
-    paddingTop: 15,
+    paddingVertical: 15,
     flex: 1
   }
 })

@@ -11,7 +11,7 @@ import { COLORS } from '../../utils/css'
 
 const statusBarProp: StatusBarProps = {
   barStyle: 'light-content',
-  backgroundColor: COLORS.statusbar,
+  backgroundColor: '#505050',
   animated: true
 }
 

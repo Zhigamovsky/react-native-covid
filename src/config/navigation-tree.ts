@@ -56,12 +56,26 @@ export const NavTree: NavigationTree = {
     GeneralStackRudiment: {
       title: '---',
       path: 'p--drawer--general-stack'
+    },
+    QuestionnaireStackRudiment: {
+      title: 'Questionnaire',
+      path: 'p--drawer--questionnaire-stack'
+    },
+    AboutCOVIDFetus: {
+      title: 'About COVID-19',
+      path: 'p--drawer--about-covid-screen'
     }
   },
   P__GeneralBranch: {
     GeneralFetus: {
       title: 'Dashboard',
       path: 'p--general-stack--general-screen'
+    }
+  },
+  P__QuestionnaireBranch: {
+    QuestionnaireFetus: {
+      title: 'Questionnaire',
+      path: 'p--questionnaire-stack--questionnaire-screen'
     }
   }
 }

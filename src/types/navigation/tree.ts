@@ -31,12 +31,17 @@ export interface NavigationTree {
     GeneralStackRudiment: NavigationRudiment,
   },
   P__DrawerBranch: {
-    GeneralStackRudiment: NavigationRudiment
+    GeneralStackRudiment: NavigationRudiment,
+    QuestionnaireStackRudiment: NavigationRudiment,
+    AboutCOVIDFetus: NavigationFetus
   },
   D__GeneralBranch: {
     GeneralFetus: NavigationFetus
   },
   P__GeneralBranch: {
     GeneralFetus: NavigationFetus
+  },
+  P__QuestionnaireBranch: {
+    QuestionnaireFetus: NavigationFetus
   }
 }

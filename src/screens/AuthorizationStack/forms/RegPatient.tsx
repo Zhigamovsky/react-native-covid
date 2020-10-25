@@ -1,6 +1,7 @@
 import React from 'react'
 import { act } from 'react-test-renderer'
 import styled from 'styled-components/native'
+import { FadeInView } from '../../../components/animation-components'
 import { Button, Checkbox, DateTimePicker, Divider, Input, ListPicker, Segments } from '../../../components/form-components'
 import { Label } from '../../../components/styled-components'
 import { LivingConditionsTypes, SexTypes } from '../static/data'
@@ -51,6 +52,9 @@ export const RegPatientForm: React.FC<RegPatientFormProps> = ({
         value={values.phone}
         placeholder='380661231223'
         onValueChange={actions.changePhone}
+        nativeProps={{
+          keyboardType: 'numeric'
+        }}
       />
       <DateTimePicker 
         label='Select your birthdate'
@@ -80,12 +84,14 @@ export const RegPatientForm: React.FC<RegPatientFormProps> = ({
       /> 
       {
         values.placeOfWork.value ? (
-          <Input 
-            label='About place or work*'
-            value={values.placeOfWork.subValue}
-            placeholder='Write here...'
-            onValueChange={actions.changePlaceOfWork}
-          />
+          <FadeInView>
+            <Input 
+              label='About place or work*'
+              value={values.placeOfWork.subValue}
+              placeholder='Write here...'
+              onValueChange={actions.changePlaceOfWork}
+            />
+          </FadeInView>
         ) : null
       }
       <Segments 
@@ -167,7 +173,7 @@ export const RegPatientForm: React.FC<RegPatientFormProps> = ({
         onValueChange={actions.toggleIllnessLungs}
       />
       <Checkbox 
-        label='Renal failure?'
+        label='Have you renal failure?'
         value={values.illnessRenal}
         onValueChange={actions.toggleIllnessRenal}
       />
@@ -187,12 +193,12 @@ export const RegPatientForm: React.FC<RegPatientFormProps> = ({
         onValueChange={actions.toggleIllnessAutoimmune}
       />
       <Checkbox 
-        label='Diabetes?'
+        label='Have you diabetes?'
         value={values.illnessDiabetes}
         onValueChange={actions.toggleIllnessDiabetes}
       />
       <Checkbox 
-        label='Pregnancy?'
+        label='Have you pregnancy?'
         value={values.illnessPregnancy}
         onValueChange={actions.toggleIllnessPregnancy}
       />

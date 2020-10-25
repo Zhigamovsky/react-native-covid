@@ -14,7 +14,16 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   onValueChange
 }) => (
   <Container>
-    {label && <Label inlineStyle='width: 85%;'>{label}</Label>}
+    { 
+      label && (
+        <Label 
+          inlineStyle='width: 85%;'
+          onPress={onValueChange.bind(this, !value)}
+        >
+          {label}
+        </Label>
+      )
+    }
     <NativeCheckbox
       disabled={false}
       value={value}
