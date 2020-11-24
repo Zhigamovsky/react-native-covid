@@ -4,6 +4,7 @@ import { AppRegistry } from 'react-native'
 
 import { name as appName } from './app.json'
 import { RootNavigation } from './src/navigation'
+import ContextCollector from './src/contexts/context-collector'
 
 /**
  * Hide all console.log in release build
@@ -13,7 +14,9 @@ import { RootNavigation } from './src/navigation'
 AppRegistry.registerComponent(appName, () => {
   return (
     () => (
-      <RootNavigation />
+      <ContextCollector>
+        <RootNavigation />
+      </ContextCollector>
     )
   )
 })
